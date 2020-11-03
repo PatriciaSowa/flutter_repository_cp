@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'config.dart' as config;
 
 void main() {
   runApp(MyApp());
@@ -26,16 +27,17 @@ class MyHomePage extends StatelessWidget {
     final _bigFontSize = TextStyle(fontSize: 18.0);
 
     Color containerColor = Theme.of(context).primaryColor;
+    Color grayContainerColor = Colors.grey;
     Color fontColor = Colors.black;
 
     Widget buttonSection = Container(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          _buildFastField(containerColor, fontColor, 'G'),
-          _buildFastField(containerColor, fontColor, 'X'),
-          _buildFastField(containerColor, fontColor, 'R'),
-          _buildFastField(containerColor, fontColor, 'Z')
+          _buildFastField(config.Configuration.is_ambulant ?  containerColor : grayContainerColor , fontColor, 'G'),
+          _buildFastField(config.Configuration.is_bleeding ?  containerColor : grayContainerColor, fontColor, config.Configuration.has_sputtering_bleeding ?  'X' : '~'),
+          _buildFastField(config.Configuration.is_motionless ?  containerColor : grayContainerColor, fontColor, 'R'),
+          _buildFastField(config.Configuration.has_cyanosis ?  containerColor : grayContainerColor, fontColor, 'Z')
         ],
       ),
     );
