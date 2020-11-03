@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.pink,
+        primarySwatch: Colors.lightGreen,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: MyHomePage(),
@@ -22,16 +22,20 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Color color = Theme.of(context).primaryColor;
+    final _normalFontSize = TextStyle(fontSize: 14.0);
+    final _bigFontSize = TextStyle(fontSize: 18.0);
+
+    Color containerColor = Theme.of(context).primaryColor;
+    Color fontColor = Colors.black;
 
     Widget buttonSection = Container(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          _buildButtonColumn(color, Icons.call, 'CALL'),
-          _buildButtonColumn(color, Icons.near_me, 'ROUTE'),
-          _buildButtonColumn(color, Icons.share, 'SHARE'),
-          _buildButtonColumn(Colors.blue, Icons.face, 'Blaues Gesicht')
+          _buildFastField(containerColor, fontColor, 'G'),
+          _buildFastField(containerColor, fontColor, 'X'),
+          _buildFastField(containerColor, fontColor, 'R'),
+          _buildFastField(containerColor, fontColor, 'Z')
         ],
       ),
     );
@@ -46,23 +50,24 @@ class MyHomePage extends StatelessWidget {
               child: Text(
                 'A11 P 1 - 4 D 13',
                 textAlign: TextAlign.center,
+                style: _bigFontSize,
               ),
               margin: const EdgeInsets.only(top: 80),
             ),
             Image.asset(
-              './lake.jpg',
-              width: 600,
-              height: 240,
-              fit: BoxFit.cover,
+              './graphics/patient.jpg',
+              width: 300,
+              height: 400,
+              //fit: BoxFit.cover,
             ),
-            titleSection,
             buttonSection,
+            informationSection,
           ],
         ));
   }
 }
 
-Widget titleSection = Container(
+Widget informationSection = Container(
   padding: const EdgeInsets.all(32),
   child: Column(
     crossAxisAlignment: CrossAxisAlignment.start,
@@ -73,6 +78,7 @@ Widget titleSection = Container(
           'Alter: 50, Geschlecht: W',
           style: TextStyle(
             fontWeight: FontWeight.bold,
+            fontSize: 15.0,
           ),
         ),
       ),
@@ -80,6 +86,7 @@ Widget titleSection = Container(
         '1,75 m, blonde Haare, blaue Augen, Brille, extrem adipös',
         style: TextStyle(
           color: Colors.grey[500],
+          fontSize: 15.0,
         ),
       ),
       Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
@@ -89,37 +96,43 @@ Widget titleSection = Container(
             'Verletzungen:',
             style: TextStyle(
               fontWeight: FontWeight.bold,
+              fontSize: 15.0,
             ),
           ),
         ),
-        Container(
-          padding: const EdgeInsets.only(left: 4, top: 8),
-          child: Text(
-            'Teil-Amputation rechter Unterarm, spritzend blutend; schon großer Blutverlust',
-            style: TextStyle(
-              color: Colors.grey[500],
-            ),
-          ),
-        ),
+        // Container(
+        //   padding: const EdgeInsets.only(left: 4, top: 8),
+        //   child: Text(
+        //     'Teil-Amputation rechter Unterarm, spritzend blutend; schon großer Blutverlust',
+        //     style: TextStyle(
+        //       color: Colors.grey[500],
+        //     ),
+        //   ),
+        // ),
       ]),
     ],
   ),
 );
 
-Column _buildButtonColumn(Color color, IconData icon, String label) {
+Column _buildFastField(Color containerColor, Color fontColor, String label) {
   return Column(
     mainAxisSize: MainAxisSize.min,
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
-      Icon(icon, color: color),
       Container(
         margin: const EdgeInsets.only(top: 8),
-        child: Text(
-          label,
-          style: TextStyle(
-            fontSize: 12,
-            fontWeight: FontWeight.w400,
-            color: color,
+        color: containerColor,
+        width: 50.0,
+        height: 50.0,
+        child: Center(
+          child: Text(
+            label,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.w400,
+              color: fontColor,
+            ),
           ),
         ),
       ),
