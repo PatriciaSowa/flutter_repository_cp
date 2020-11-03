@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:relative_scale/relative_scale.dart';
 import 'config.dart' as config;
 
 void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatelessWidget with RelativeScale {
+  // this is very important, you should always call this whenever you implement RelativeScaler on a widget.
+  initRelativeScaler(context);
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -20,7 +24,8 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatelessWidget with RelativeScale {
+  initRelativeScaler(context);
   @override
   Widget build(BuildContext context) {
     final _normalFontSize = TextStyle(fontSize: 14.0);
@@ -34,10 +39,10 @@ class MyHomePage extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          _buildFastField(config.Configuration.is_ambulant ?  containerColor : grayContainerColor , fontColor, 'G'),
-          _buildFastField(config.Configuration.is_bleeding ?  containerColor : grayContainerColor, fontColor, config.Configuration.has_sputtering_bleeding ?  'X' : '~'),
-          _buildFastField(config.Configuration.is_motionless ?  containerColor : grayContainerColor, fontColor, 'R'),
-          _buildFastField(config.Configuration.has_cyanosis ?  containerColor : grayContainerColor, fontColor, 'Z')
+          _buildFastField(config.Configuration.is_ambulant ?  containerColor : grayContainerColor , fontColor, 'G', context),
+          _buildFastField(config.Configuration.is_bleeding ?  containerColor : grayContainerColor, fontColor, config.Configuration.has_sputtering_bleeding ?  'X' : '~', context),
+          _buildFastField(config.Configuration.is_motionless ?  containerColor : grayContainerColor, fontColor, 'R', context),
+          _buildFastField(config.Configuration.has_cyanosis ?  containerColor : grayContainerColor, fontColor, 'Z', context)
         ],
       ),
     );
@@ -58,8 +63,8 @@ class MyHomePage extends StatelessWidget {
             ),
             Image.asset(
               './graphics/patient.jpg',
-              width: 300,
-              height: 400,
+              width: MediaQuery.of(context).size.width * 0.6,
+              height: MediaQuery.of(context).size.height * 0.7,
               //fit: BoxFit.cover,
             ),
             buttonSection,
@@ -116,7 +121,8 @@ Widget informationSection = Container(
   ),
 );
 
-Column _buildFastField(Color containerColor, Color fontColor, String label) {
+Column _buildFastField(Color containerColor, Color fontColor, String label, BuildContext context){
+  // this is very important, you should always call this whenever you implement RelativeScaler on a widget.
   return Column(
     mainAxisSize: MainAxisSize.min,
     mainAxisAlignment: MainAxisAlignment.center,
@@ -124,8 +130,8 @@ Column _buildFastField(Color containerColor, Color fontColor, String label) {
       Container(
         margin: const EdgeInsets.only(top: 8),
         color: containerColor,
-        width: 50.0,
-        height: 50.0,
+        width: MediaQuery.of(context).size.width * 0.2,
+        height: MediaQuery.of(context).size.width * 0.2,
         child: Center(
           child: Text(
             label,
