@@ -6,10 +6,7 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget with RelativeScale {
-  // this is very important, you should always call this whenever you implement RelativeScaler on a widget.
-  initRelativeScaler(context);
-
+class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -24,8 +21,7 @@ class MyApp extends StatelessWidget with RelativeScale {
   }
 }
 
-class MyHomePage extends StatelessWidget with RelativeScale {
-  initRelativeScaler(context);
+class MyHomePage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     final _normalFontSize = TextStyle(fontSize: 14.0);
