@@ -117,6 +117,8 @@ Widget informationSection = Container(
   ),
 );
 
+
+
 Column _buildFastField(Color containerColor, Color fontColor, String label, BuildContext context){
   // this is very important, you should always call this whenever you implement RelativeScaler on a widget.
   return Column(
