@@ -55,7 +55,7 @@ class MyHomePage extends StatelessWidget{
                 textAlign: TextAlign.center,
                 style: _bigFontSize,
               ),
-              margin: const EdgeInsets.only(top: 80),
+              margin: EdgeInsets.only(top: MediaQuery.of(context).size.width * 0.1),
             ),
             Image.asset(
               './graphics/patient.jpg',
@@ -92,8 +92,8 @@ Widget informationSection = Container(
           fontSize: 15.0,
         ),
       ),
-      Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-        Container(
+      //Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+      Container(
           padding: const EdgeInsets.only(top: 8),
           child: Text(
             'Verletzungen:',
@@ -102,20 +102,16 @@ Widget informationSection = Container(
               fontSize: 15.0,
             ),
           ),
-        ),
-        // Container(
-        //   padding: const EdgeInsets.only(left: 4, top: 8),
-        //   child: Text(
-        //     'Teil-Amputation rechter Unterarm, spritzend blutend; schon großer Blutverlust',
-        //     style: TextStyle(
-        //       color: Colors.grey[500],
-        //     ),
-        //   ),
-        // ),
+       ),
+       Text(
+          //padding: const EdgeInsets.only(left: 4, top: 8),
+            'Teil-Amputation rechter Unterarm, spritzend blutend; schon großer Blutverlust',
+            style: TextStyle(
+              color: Colors.grey[500],
+            ),
+          ),
       ]),
-    ],
-  ),
-);
+  );
 
 
 
@@ -136,7 +132,7 @@ Column _buildFastField(Color containerColor, Color fontColor, String label, Buil
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 20,
-              fontWeight: FontWeight.w400,
+              fontWeight: FontWeight.bold,
               color: fontColor,
             ),
           ),
