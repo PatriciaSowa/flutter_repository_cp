@@ -23,7 +23,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  relative_scale: ^1.1.0
+  qr_code_scanner: ^0.0.13
+  # relative_scale: ^1.1.0
 
 
   # The following adds the Cupertino Icons font to your application.

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:relative_scale/relative_scale.dart';
+import 'package:qr_code_scanner/qr_code_scanner.dart';
+//import 'package:relative_scale/relative_scale.dart';
 import 'config.dart' as config;
 
 void main() {
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatelessWidget{
+class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final _normalFontSize = TextStyle(fontSize: 14.0);
@@ -35,17 +36,41 @@ class MyHomePage extends StatelessWidget{
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          _buildFastField(config.Configuration.is_ambulant ?  containerColor : grayContainerColor , fontColor, 'G', context),
-          _buildFastField(config.Configuration.is_bleeding ?  containerColor : grayContainerColor, fontColor, config.Configuration.has_sputtering_bleeding ?  'X' : '~', context),
-          _buildFastField(config.Configuration.is_motionless ?  containerColor : grayContainerColor, fontColor, 'R', context),
-          _buildFastField(config.Configuration.has_cyanosis ?  containerColor : grayContainerColor, fontColor, 'Z', context)
+          _buildFastField(
+              config.Configuration.is_ambulant
+                  ? containerColor
+                  : grayContainerColor,
+              fontColor,
+              'G',
+              context),
+          _buildFastField(
+              config.Configuration.is_bleeding
+                  ? containerColor
+                  : grayContainerColor,
+              fontColor,
+              config.Configuration.has_sputtering_bleeding ? 'X' : '~',
+              context),
+          _buildFastField(
+              config.Configuration.is_motionless
+                  ? containerColor
+                  : grayContainerColor,
+              fontColor,
+              'R',
+              context),
+          _buildFastField(
+              config.Configuration.has_cyanosis
+                  ? containerColor
+                  : grayContainerColor,
+              fontColor,
+              'Z',
+              context)
         ],
       ),
     );
 
     return Scaffold(
         appBar: AppBar(
-          title: Text('Flutter layout demo'),
+          title: Text('Schnelldiagnose'),
         ),
         body: ListView(
           children: [
@@ -55,7 +80,8 @@ class MyHomePage extends StatelessWidget{
                 textAlign: TextAlign.center,
                 style: _bigFontSize,
               ),
-              margin: EdgeInsets.only(top: MediaQuery.of(context).size.width * 0.1),
+              margin:
+                  EdgeInsets.only(top: MediaQuery.of(context).size.width * 0.1),
             ),
             Image.asset(
               './graphics/patient.jpg',
@@ -72,50 +98,47 @@ class MyHomePage extends StatelessWidget{
 
 Widget informationSection = Container(
   padding: const EdgeInsets.all(32),
-  child: Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-      Container(
-        padding: const EdgeInsets.only(bottom: 8),
-        child: Text(
-          'Alter: 50, Geschlecht: W',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 15.0,
-          ),
-        ),
-      ),
-      Text(
-        '1,75 m, blonde Haare, blaue Augen, Brille, extrem adipös',
+  child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+    //Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+    Container(
+      padding: const EdgeInsets.only(top: 8),
+      child: Text(
+        'Verletzungen:',
         style: TextStyle(
-          color: Colors.grey[500],
+          fontWeight: FontWeight.bold,
           fontSize: 15.0,
         ),
       ),
-      //Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-      Container(
-          padding: const EdgeInsets.only(top: 8),
-          child: Text(
-            'Verletzungen:',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 15.0,
-            ),
-          ),
-       ),
-       Text(
-          //padding: const EdgeInsets.only(left: 4, top: 8),
-            'Teil-Amputation rechter Unterarm, spritzend blutend; schon großer Blutverlust',
-            style: TextStyle(
-              color: Colors.grey[500],
-            ),
-          ),
-      ]),
-  );
+    ),
+    Text(
+      //padding: const EdgeInsets.only(left: 4, top: 8),
+      'Teil-Amputation rechter Unterarm, spritzend blutend; schon großer Blutverlust',
+      style: TextStyle(
+        color: Colors.grey[500],
+      ),
+    ),
+    Container(
+      padding: const EdgeInsets.only(top: 8),
+      child: Text(
+        'Personalien',
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 15.0,
+        ),
+      ),
+    ),
+    Text(
+      'Alter: 50; Geschlecht: W; 1,75 m; blonde Haare; blaue Augen; Brille',
+      style: TextStyle(
+        color: Colors.grey[500],
+        fontSize: 15.0,
+      ),
+    ),
+  ]),
+);
 
-
-
-Column _buildFastField(Color containerColor, Color fontColor, String label, BuildContext context){
+Column _buildFastField(
+    Color containerColor, Color fontColor, String label, BuildContext context) {
   // this is very important, you should always call this whenever you implement RelativeScaler on a widget.
   return Column(
     mainAxisSize: MainAxisSize.min,
