@@ -10,6 +10,7 @@ class VisualInformation extends StatelessWidget {
           'A11 P 1 - 4 D 13',
           textAlign: TextAlign.center,
           style: TextStyle(
+            fontWeight: FontWeight.bold,
             fontSize: normalFontSize,
           ),
         ),

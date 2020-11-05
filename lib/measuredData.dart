@@ -3,13 +3,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_prototype_cp/main.dart';
 
-class PatientData extends StatefulWidget {
+class MeasuredData extends StatefulWidget {
   @override
-  _PatientDataState createState() => _PatientDataState();
+  _MeasuredDataState createState() => _MeasuredDataState();
 }
 
-class _PatientDataState extends State<PatientData> {
-  final _dataOfPatient = <String>['Blutdruck', 'Puls', 'Atemfrequenz'];
+class _MeasuredDataState extends State<MeasuredData> {
+  final _dataOfPatient = <String>['Blutdruck', 'Puls', 'Atemfrequenz', 'Sauerstoffsättigung'];
   Map<String, int> _measured = {'Blutdruck': 90};
 
   @override
@@ -17,9 +17,9 @@ class _PatientDataState extends State<PatientData> {
     return Row(children: [
       Expanded(
           child: SizedBox(
-              height: 200.0,
+              height: MediaQuery.of(context).size.width * 0.6,
               child: new ListView.builder(
-                  padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.1),
+
                   itemCount: _dataOfPatient.length,
                   itemBuilder: (BuildContext context, int index) {
                     return Container (child: _buildRow('${_dataOfPatient[index]}'));

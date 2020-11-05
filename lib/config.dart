@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 
 class Configuration{
   static const is_ambulant = false;

@@ -10,9 +10,10 @@ import './measuredData.dart';
 //import 'package:qr_code_scanner/qr_code_scanner.dart';
 //import 'package:relative_scale/relative_scale.dart';
 
-final double smallFontSize = 10;
-final double normalFontSize = 14;
-final double bigFontSize = 18;
+final double smallFontSize = 12;
+final double normalFontSize = 16;
+final double bigFontSize = 20;
+final double iconSize = 30;
 BuildContext context;
 Color containerColor = Colors.lightGreen;
 Color grayContainerColor = Colors.grey;
@@ -62,15 +63,16 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text('Schnelldiagnose'),
         actions: [
           IconButton(
-              icon: Icon(Icons.add_circle), onPressed: _openDetailedInformation)
+              icon: Icon(Icons.menu), onPressed: _openDetailedInformation)
         ],
       ),
       body: ListView(
+        padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.05),
         children: [
           VisualInformation(),
           BuildButtonSection(),
           BuildFirstInformationSection(),
-          PatientData(),
+          MeasuredData(),
         ],
       ),
       floatingActionButton: FloatingActionButton(

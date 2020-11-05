@@ -61,7 +61,7 @@ Column _buildFastField(
             label,
             textAlign: TextAlign.center,
             style: TextStyle(
-              fontSize: 20,
+              fontSize: bigFontSize,
               fontWeight: FontWeight.bold,
               color: fontColor,
             ),

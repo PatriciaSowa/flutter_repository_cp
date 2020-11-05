@@ -5,7 +5,6 @@ class BuildFirstInformationSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(32),
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         //Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
         Container(
@@ -23,6 +22,7 @@ class BuildFirstInformationSection extends StatelessWidget {
           //padding: const EdgeInsets.only(left: 4, top: 8),
           'Teil-Amputation rechter Unterarm, spritzend blutend; schon großer Blutverlust',
           style: TextStyle(
+            fontSize: normalFontSize,
             color: Colors.grey[500],
           ),
         ),

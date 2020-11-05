@@ -2,44 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_prototype_cp/main.dart';
 
 import './detailedInformation.dart';
-
-class MenuOptions extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Menu'),
-      ),
-      body: Column(
-        children: [
-          MenuOption(
-            itemName: 'Detailed Information',
-          ),
-          MenuOption(
-            itemName: 'Inventory',
-          ),
-          MenuOption(
-            itemName: 'Members',
-          ),
-          MenuOption(
-            itemName: 'Registration',
-          ),
-        ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: null,
-        tooltip: 'Finish the exchange',
-        child: Icon(Icons.check),
-      ),
-    );
-  }
-}
+import './inventoryPage.dart';
+import './exchangePage.dart';
 
 class MenuOption extends StatefulWidget {
-  final String itemName;
+  final String routeName;
+  final Function route;
 
   MenuOption({
-    @required this.itemName,
+    @required this.routeName,
+    @required this.route,
   });
 
   @override
@@ -47,15 +19,27 @@ class MenuOption extends StatefulWidget {
 }
 
 class _MenuOptionState extends State<MenuOption> {
-  void _openDetailedInformation() {
-    Navigator.of(context).push(MaterialPageRoute(
-      builder: (context) => DetailedInformationPage(),
-    ));
-  }
+  //
+  // void _openDetailedInformation() {
+  //   Navigator.of(context).push(MaterialPageRoute(
+  //     builder: (context) => DetailedInformationPage(),
+  //   ));
+  // }
+  //
+  // void _openExchangePage(BuildContext context) {
+  //   Navigator.of(context)
+  //       .push(MaterialPageRoute(builder: (context) => ExchangePage()));
+  // }
+  //
+  // void _openInventoryPage() {
+  //   Navigator.of(context)
+  //       .push(MaterialPageRoute(builder: (context) => InventoryPage()));
+  // }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return GestureDetector(
+        child: Container(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -63,16 +47,14 @@ class _MenuOptionState extends State<MenuOption> {
         children: [
           Expanded(
             child: ListTile(
-              leading: IconButton(
-                onPressed: _openDetailedInformation,
-                icon: Icon(Icons.add),
-                tooltip: 'Click here for details',
-                iconSize: 28,
-                // highlightColor: Colors.red[900],
+              onTap: () => widget.route(context),
+              leading: Icon(
+                Icons.add,
+                size: 28,
               ),
               title: Container(
                 child: Text(
-                  widget.itemName,
+                  widget.routeName,
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: bigFontSize),
                 ),
@@ -82,6 +64,54 @@ class _MenuOptionState extends State<MenuOption> {
             ),
           ),
         ],
+      ),
+    ));
+  }
+}
+
+class MenuOptions extends StatelessWidget {
+  void _openDetailedInformation(BuildContext context) {
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (context) => DetailedInformationPage(),
+    ));
+  }
+
+  void _openExchangePage(BuildContext context) {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => ExchangePage()));
+  }
+
+  void _openInventoryPage(BuildContext context) {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => InventoryPage()));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Menu'),
+      ),
+      body: Column(
+        children: [
+          MenuOption(
+            routeName: 'Detailed Information',
+            route: _openDetailedInformation,
+          ),
+          MenuOption(
+            routeName: 'Inventory',
+            route: _openInventoryPage,
+          ),
+          MenuOption(
+            routeName: 'Exchange Inventory',
+            route: _openExchangePage,
+          ),
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: null,
+        tooltip: 'Finish the exchange',
+        child: Icon(Icons.check),
       ),
     );
   }

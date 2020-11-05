@@ -8,27 +8,32 @@ class DetailedInformationPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Detailed Information'),
       ),
-      body: Column(
-        children: [
-          Container(
-            padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.1),
-            child: Text(
-              'Personalien',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: normalFontSize,
+      body: Padding(
+        padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.05),
+        child: Column(
+          children: [
+            Container(
+             child: Text(
+                'Personalien',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: normalFontSize,
+                ),
               ),
             ),
-          ),
-          Text(
-            'Alter: 50; Geschlecht: W; 1,75 m; blonde Haare; blaue Augen; Brille',
-            //padding: EdgeInsets.only(top: MediaQuery.of(context).size.width * 0.1),
-            style: TextStyle(
-              color: Colors.grey[500],
-              fontSize: normalFontSize,
+            Container(
+              padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.05),
+              child: Text(
+                'Alter: 50; Geschlecht: W; 1,75 m; blonde Haare; blaue Augen; Brille',
+                //padding: EdgeInsets.only(top: MediaQuery.of(context).size.width * 0.1),
+                style: TextStyle(
+                  color: Colors.grey[500],
+                  fontSize: normalFontSize,
+                ),
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
