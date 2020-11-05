@@ -5,6 +5,7 @@ import './buttonSection.dart';
 import './detailedInformation.dart';
 import './visualInformation.dart';
 import './qrCode.dart';
+import './menu.dart';
 //import 'package:qr_code_scanner/qr_code_scanner.dart';
 //import 'package:relative_scale/relative_scale.dart';
 
@@ -45,11 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     void _openDetailedInformation() {
       Navigator.of(context)
-          .push(MaterialPageRoute(builder: (context) => DetailedInformationPage(
-        smallFontSize: smallFontSize,
-        normalFontSize: normalFontSize,
-        bigFontSize: bigFontSize,
-      ),));
+          .push(MaterialPageRoute(builder: (context) => MenuOptions(),));
     }
 
     void _openQRCodeScanner() {
@@ -81,6 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
               normalFontSize: normalFontSize,
               bigFontSize: bigFontSize,
             ),
+            PatientData(),
           ],
         ),
       floatingActionButton: FloatingActionButton(
