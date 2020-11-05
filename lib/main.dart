@@ -55,9 +55,9 @@ class _MyHomePageState extends State<MyHomePage> {
     void _openQRCodeScanner() {
       Navigator.of(context)
           .push(MaterialPageRoute(builder: (context) => QrCodeScanner(
-        smallFontSize: smallFontSize,
-        normalFontSize: normalFontSize,
-        bigFontSize: bigFontSize,
+        containerColor,
+        // smallFontSize: smallFontSize,
+        // normalFontSize: normalFontSize,
       ),));
     }
 
