@@ -19,7 +19,7 @@ class BuildFirstInformationSection extends StatelessWidget {
             'Verletzungen:',
             style: TextStyle(
               fontWeight: FontWeight.bold,
-              fontSize: 15.0,
+              fontSize: normalFontSize,
             ),
           ),
         ),
