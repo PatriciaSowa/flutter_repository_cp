@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_prototype_cp/main.dart';
 
 class DetailedInformationPage extends StatelessWidget {
-  final double smallFontSize;
-  final double normalFontSize;
-  final double bigFontSize;
-
-  DetailedInformationPage({this.smallFontSize, this.normalFontSize, this.bigFontSize});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

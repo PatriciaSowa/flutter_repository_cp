@@ -1,4 +1,4 @@
-import 'dart:collection';
+//import 'dart:collection';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_prototype_cp/main.dart';
@@ -9,7 +9,7 @@ class PatientData extends StatefulWidget {
 }
 
 class _PatientDataState extends State<PatientData> {
-  final _data_of_patient = <String>['Blutdruck', 'Puls', 'Atemfrequenz'];
+  final _dataOfPatient = <String>['Blutdruck', 'Puls', 'Atemfrequenz'];
   Map<String, int> _measured = {'Blutdruck': 90};
 
   @override
@@ -20,9 +20,9 @@ class _PatientDataState extends State<PatientData> {
               height: 200.0,
               child: new ListView.builder(
                   padding: const EdgeInsets.all(8),
-                  itemCount: _data_of_patient.length,
+                  itemCount: _dataOfPatient.length,
                   itemBuilder: (BuildContext context, int index) {
-                    return Container (child: _buildRow('${_data_of_patient[index]}'));
+                    return Container (child: _buildRow('${_dataOfPatient[index]}'));
                   }))),
     ]);
   }

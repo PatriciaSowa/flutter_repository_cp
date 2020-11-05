@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_prototype_cp/main.dart';
 
 class BuildFirstInformationSection extends StatelessWidget {
-  final double smallFontSize;
-  final double normalFontSize;
-  final double bigFontSize;
-
-  BuildFirstInformationSection({this.smallFontSize, this.normalFontSize, this.bigFontSize});
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -14,7 +9,8 @@ class BuildFirstInformationSection extends StatelessWidget {
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         //Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
         Container(
-          padding: EdgeInsets.only(top: MediaQuery.of(context).size.width * 0.1),
+          padding:
+              EdgeInsets.only(top: MediaQuery.of(context).size.width * 0.1),
           child: Text(
             'Verletzungen:',
             style: TextStyle(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
+import 'package:flutter_prototype_cp/main.dart';
 
 const flashOn = 'FLASH ON';
 const flashOff = 'FLASH OFF';
@@ -7,12 +8,8 @@ const frontCamera = 'FRONT CAMERA';
 const backCamera = 'BACK CAMERA';
 
 class QrCodeScanner extends StatefulWidget {
-  Color containerColor;
-
-  QrCodeScanner(this.containerColor);
-
   @override
-  _QrCodeScannerState createState() => _QrCodeScannerState(containerColor);
+  _QrCodeScannerState createState() => _QrCodeScannerState();
 }
 
 class _QrCodeScannerState extends State<QrCodeScanner> {
@@ -21,9 +18,6 @@ class _QrCodeScannerState extends State<QrCodeScanner> {
   var cameraState = frontCamera;
   QRViewController controller;
   final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
-  Color containerColor;
-
-  _QrCodeScannerState(this.containerColor);
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +53,9 @@ class _QrCodeScannerState extends State<QrCodeScanner> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
                       Container(
-                        margin: EdgeInsets.all(MediaQuery.of(context).size.width * 0.03,),
+                        margin: EdgeInsets.all(
+                          MediaQuery.of(context).size.width * 0.03,
+                        ),
                         color: containerColor,
                         child: RaisedButton(
                           color: containerColor,
@@ -82,7 +78,9 @@ class _QrCodeScannerState extends State<QrCodeScanner> {
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.all(MediaQuery.of(context).size.width * 0.03,),
+                        margin: EdgeInsets.all(
+                          MediaQuery.of(context).size.width * 0.03,
+                        ),
                         color: containerColor,
                         child: RaisedButton(
                           color: containerColor,
@@ -111,7 +109,9 @@ class _QrCodeScannerState extends State<QrCodeScanner> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
                       Container(
-                        margin: EdgeInsets.all(MediaQuery.of(context).size.width * 0.03,),
+                        margin: EdgeInsets.all(
+                          MediaQuery.of(context).size.width * 0.03,
+                        ),
                         child: RaisedButton(
                           onPressed: () {
                             controller?.pauseCamera();
@@ -120,7 +120,9 @@ class _QrCodeScannerState extends State<QrCodeScanner> {
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.all(MediaQuery.of(context).size.width * 0.03,),
+                        margin: EdgeInsets.all(
+                          MediaQuery.of(context).size.width * 0.03,
+                        ),
                         child: RaisedButton(
                           onPressed: () {
                             controller?.resumeCamera();
