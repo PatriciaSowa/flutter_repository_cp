@@ -22,8 +22,7 @@ class _PatientDataState extends State<PatientData> {
                   padding: const EdgeInsets.all(8),
                   itemCount: _data_of_patient.length,
                   itemBuilder: (BuildContext context, int index) {
-                    if (index.isOdd) return Divider();
-                    return _buildRow('${_data_of_patient[index]}');
+                    return Container (child: _buildRow('${_data_of_patient[index]}'));
                   }))),
     ]);
   }
