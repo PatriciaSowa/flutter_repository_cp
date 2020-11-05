@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_prototype_cp/main.dart';
 
 import './detailedInformation.dart';
 
@@ -73,7 +74,7 @@ class _MenuOptionState extends State<MenuOption> {
                 child: Text(
                   widget.itemName,
                   textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 18),
+                  style: TextStyle(fontSize: bigFontSize),
                 ),
               ),
               dense: true,

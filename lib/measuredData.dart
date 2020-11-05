@@ -19,7 +19,7 @@ class _PatientDataState extends State<PatientData> {
           child: SizedBox(
               height: 200.0,
               child: new ListView.builder(
-                  padding: const EdgeInsets.all(8),
+                  padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.1),
                   itemCount: _dataOfPatient.length,
                   itemBuilder: (BuildContext context, int index) {
                     return Container (child: _buildRow('${_dataOfPatient[index]}'));

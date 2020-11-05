@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:flutter_prototype_cp/main.dart';
@@ -74,7 +76,7 @@ class _QrCodeScannerState extends State<QrCodeScanner> {
                             }
                           },
                           child:
-                              Text(flashState, style: TextStyle(fontSize: 20)),
+                              Text(flashState, style: TextStyle(fontSize: bigFontSize)),
                         ),
                       ),
                       Container(
@@ -99,7 +101,7 @@ class _QrCodeScannerState extends State<QrCodeScanner> {
                             }
                           },
                           child:
-                              Text(cameraState, style: TextStyle(fontSize: 20)),
+                              Text(cameraState, style: TextStyle(fontSize: bigFontSize)),
                         ),
                       )
                     ],
@@ -116,7 +118,7 @@ class _QrCodeScannerState extends State<QrCodeScanner> {
                           onPressed: () {
                             controller?.pauseCamera();
                           },
-                          child: Text('pause', style: TextStyle(fontSize: 20)),
+                          child: Text('pause', style: TextStyle(fontSize: bigFontSize)),
                         ),
                       ),
                       Container(
@@ -127,7 +129,7 @@ class _QrCodeScannerState extends State<QrCodeScanner> {
                           onPressed: () {
                             controller?.resumeCamera();
                           },
-                          child: Text('resume', style: TextStyle(fontSize: 20)),
+                          child: Text('resume', style: TextStyle(fontSize: bigFontSize)),
                         ),
                       )
                     ],
