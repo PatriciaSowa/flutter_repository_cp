@@ -28,12 +28,12 @@ class _PatientDataState extends State<PatientData> {
   }
 
   Widget _buildRow(String measurement) {
-    final _biggerFont = TextStyle(fontSize: normalFontSize);
+    final _biggerFont = TextStyle(fontSize: bigFontSize);
     final alreadyMeasured = _measured.containsKey(measurement);
     return ListTile(
       title: Text(
         measurement,
-        style: _biggerFont,
+        style: TextStyle(fontSize: bigFontSize),
       ),
       trailing: alreadyMeasured
           ? Text((_measured[measurement]).toString(), style: _biggerFont)

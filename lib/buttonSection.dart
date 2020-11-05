@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'config.dart' as config;
-import 'main.dart';
+import 'package:flutter_prototype_cp/main.dart';
 
 class BuildButtonSection extends StatelessWidget {
 
