@@ -68,7 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: ListView(
         children: [
           VisualInformation(),
-          BuildButtonSection(containerColor),
+          BuildButtonSection(),
           BuildFirstInformationSection(),
           PatientData(),
         ],

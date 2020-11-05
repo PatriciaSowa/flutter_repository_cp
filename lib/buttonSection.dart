@@ -3,12 +3,6 @@ import 'config.dart' as config;
 import 'main.dart';
 
 class BuildButtonSection extends StatelessWidget {
-  //Color containerColor = Theme.of(context).primaryColor;
-  Color grayContainerColor = Colors.grey;
-  Color fontColor = Colors.black;
-  final Color containerColor;
-
-  BuildButtonSection(this.containerColor);
 
   @override
   Widget build(BuildContext context) {
