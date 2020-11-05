@@ -5,7 +5,7 @@ import './buttonSection.dart';
 import './detailedInformation.dart';
 import './visualInformation.dart';
 import './qrCode.dart';
-import './menu.dart';
+import './measuredData.dart';
 //import 'package:qr_code_scanner/qr_code_scanner.dart';
 //import 'package:relative_scale/relative_scale.dart';
 
@@ -36,10 +36,6 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    final double smallFontSize = 10;
-    final double normalFontSize = 14;
-    final double bigFontSize = 18;
-
     Color containerColor = Theme.of(context).primaryColor;
     Color grayContainerColor = Colors.grey;
     Color fontColor = Colors.black;
