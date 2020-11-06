@@ -16,7 +16,7 @@ class _LogoAppState extends State<LogoApp> with SingleTickerProviderStateMixin {
         margin: EdgeInsets.symmetric(vertical: 10),
         height: 300,
         width: 300,
-        child: Text(_timeLeft.toString()),
+        child: Text('$_timeLeft'),
       ),
     );
   }
