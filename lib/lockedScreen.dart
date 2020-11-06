@@ -5,10 +5,9 @@ class LogoApp extends StatefulWidget {
 }
 
 class _LogoAppState extends State<LogoApp> with SingleTickerProviderStateMixin {
-
   AnimationController controller;
   Animation<int> lockedDisplay;
-  final timeLeft = 15;
+   int _timeLeft = 15;
 
   @override
   Widget build(BuildContext context) {
@@ -17,23 +16,21 @@ class _LogoAppState extends State<LogoApp> with SingleTickerProviderStateMixin {
         margin: EdgeInsets.symmetric(vertical: 10),
         height: 300,
         width: 300,
-        child: Text(timeLeft.toString()),
+        child: Text(_timeLeft.toString()),
       ),
     );
   }
 
-
-  initState(){
+  initState() {
     super.initState();
-    controller = AnimationController(duration: const Duration(seconds: 15), vsync: this);
+    controller =
+        AnimationController(duration: const Duration(seconds: 15), vsync: this);
     lockedDisplay = IntTween(begin: 0, end: 15).animate(controller);
-    lockedDisplay.addListender((){
+    lockedDisplay.addListender(() {
       setState(() {
-
+        _timeLeft = lockedDisplay.value;
       });
     });
     controller.forward();
   }
-
-
 }
