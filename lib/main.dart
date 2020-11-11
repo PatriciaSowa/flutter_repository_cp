@@ -7,8 +7,6 @@ import './visualInformation.dart';
 import './qrCode.dart';
 import './menu.dart';
 import './measuredData.dart';
-//import 'package:qr_code_scanner/qr_code_scanner.dart';
-//import 'package:relative_scale/relative_scale.dart';
 
 final double smallFontSize = 12;
 final double normalFontSize = 16;
